@@ -5,7 +5,7 @@ import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/home.component'
 
-import './App.css'
+// import './App.css'
 
 const App: React.FC = () => {
   // const [count, setCount] = useState(0)
