@@ -71,6 +71,32 @@ const Home = () => {
         }
     }
 
+    function kgToLbs (kg: string | number) {
+        if (typeof kg === "string") {
+            console.log(kg);
+        } else {
+            console.log(kg);
+        }
+    }
+    console.log(kgToLbs(123));
+    
+
+    type Draggable = {
+        drag: () => void
+    }
+
+    type Resizable = {
+        resize: () => void
+    }
+
+    type UIWidget = Draggable & Resizable;
+
+
+    let draggable: UIWidget = {
+        drag: () => {},
+        resize: () => {}
+
+    }
     console.log(employeee);
     
     employee.name = 'faradis'
