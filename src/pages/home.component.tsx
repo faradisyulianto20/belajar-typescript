@@ -45,6 +45,36 @@ const Home = () => {
         return income;
     }
 
+    const employee: {
+        readonly id: number,
+        name: string,
+        retire: (date: Date) => void
+    } = {
+        id: 1,
+        name: '',
+        retire: (date: Date) => {
+            console.log(date);
+        }
+    }
+
+    type Employee = {
+        id: number,
+        name: string, 
+        retire: (date: Date) => void
+    }
+
+    let employeee: Employee = {
+        id: 1,
+        name: 'faradis',
+        retire: (date: Date) => {
+            console.log(date);
+        }
+    }
+
+    console.log(employeee);
+    
+    employee.name = 'faradis'
+
     console.log(calculationTax(2));
     
 
