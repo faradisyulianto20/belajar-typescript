@@ -310,6 +310,39 @@ const Home = () => {
     let isTrue: true
     isTrue = true
     console.log(isTrue);
+
+    // tuples
+    const myTuples: [string, boolean] = ['faradis', true]
+    const [nama, benar] = myTuples
+    console.log(nama);
+    console.log(benar);
+    console.log(myTuples[0]);
+
+    // enum
+    enum BenarSalah {
+        benar = "benar",
+        salah = "salah"
+    }
+    console.log(BenarSalah.benar);
+
+    // class
+    class Person1 {
+        readonly name: string;
+        readonly age: number; 
+        constructor (name: string, age: number) {
+            this.name = name
+            this.age = age
+        }
+    }
+
+    const person1 = new Person1("Faradis", 19)
+    console.log(person1.name);
+
+    // acces modifier
+    
+    
+    
+    
     
     
     
