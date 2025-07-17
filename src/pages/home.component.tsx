@@ -214,6 +214,111 @@ const Home = () => {
     ]
     names.push('far')
     console.log(names);
+
+    // add value to string
+    const num: number[] = []
+    console.log(num);
+    num.push(12)
+    console.log(num);
+
+    // multidimensional
+    const angka: number[][] = [[1,2,3]]
+    const angkaa: number[][][] = [[[1,2,3,4]]]
+    console.log(angka);
+    console.log(angkaa);
+    
+    // object
+    const person : {firstname: string, id: number, men: boolean} = {
+        firstname: 'faradis',
+        id: 12,
+        men: true
+    } 
+    console.log(person);
+    console.log(person.firstname);
+
+    function orang() : {nama: string, nik: number} {
+        return {
+            nama: 'faradis',
+            nik: 123
+        }
+    }
+    console.log(orang());
+
+    // type aliases
+    type Person = {name: string, age: number}
+
+    function adis(): Person {
+        return {
+            name: 'faradis',
+            age: 19
+        }
+    }
+    console.log(adis().name);
+
+    const zaka: Person = {
+        name: 'zaka',
+        age: 20
+    }
+    console.log(zaka.name + zaka.age);
+
+    // optional properties
+    type OrangLagi = {
+        nama: string,
+        readonly id: number,
+        gender?: "male" | "female"
+    }
+
+    const lucintaLuna: OrangLagi = {
+        nama: "Lucinta Luna",
+        id: 123,
+    }
+    lucintaLuna.id = 321
+    console.log(lucintaLuna.gender);
+
+    // intersection type
+    type campur = OrangLagi & Person
+
+    const aneh: campur = {
+        name: 'ini inggris',
+        age: 14,
+        nama: 'nah ini indo',
+        id: 321
+    }
+
+    console.log(aneh);
+
+    // unions
+    let password : string | number = 12
+    password = "123"
+    console.log(password);
+
+    const user: OrangLagi | Person = {
+        nama: "dias",
+        id: 121212
+    }
+    user.nama = 'ardi'
+    console.log(user);
+    
+    const items: (number | boolean)[] = [1,2,3 , true]
+    console.log(items);
+    
+    // literal types
+    let gender: "men" | "women"
+    gender = "men"
+    console.log(gender);
+    
+    let isTrue: true
+    isTrue = true
+    console.log(isTrue);
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
