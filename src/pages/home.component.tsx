@@ -160,10 +160,10 @@ const Home = () => {
     console.log(string);
 
     // any
-    let color: any = "red"
-    color = 12
-    color = true
-    console.log(color);
+    // let color: any = "red"
+    // color = 12
+    // color = true
+    // console.log(color);
 
     // function parameters + return annontation
     function times(a: number, b: number): number {
@@ -185,21 +185,21 @@ const Home = () => {
     hello('Adis')
 
     // never
-    function throwError(msg: string):never {
-        throw new Error(msg)
-    }
-    console.log(throwError);
+    // function throwError(msg: string):never {
+    //     throw new Error(msg)
+    // }
+    // console.log(throwError);
     
-    function infiniteLoop():never {
-        while(true) {
-            // a += 1
-        }
-    }
-    console.log(infiniteLoop());
+    // function infiniteLoop():never {
+    //     while(true) {
+    //         // a += 1
+    //     }
+    // }
+    // console.log(infiniteLoop());
 
-    let x: never;
+    // let x: never;
 
-    x = infiniteLoop()
+    // x = infiniteLoop()
 
     // arrays
     // [] notation
@@ -264,7 +264,7 @@ const Home = () => {
     // optional properties
     type OrangLagi = {
         nama: string,
-        readonly id: number,
+         id: number,
         gender?: "male" | "female"
     }
 
@@ -303,12 +303,13 @@ const Home = () => {
     console.log(items);
     
     // literal types
-    let gender: "men" | "women"
-    gender = "men"
-    console.log(gender);
+    // let gender: "men" | "women";
+    // gender = "men";
+    // console.log(gender);
+
     
-    let isTrue: true
-    isTrue = true
+    let isTrue = true
+    isTrue = false
     console.log(isTrue);
 
     // tuples
@@ -319,11 +320,11 @@ const Home = () => {
     console.log(myTuples[0]);
 
     // enum
-    enum BenarSalah {
-        benar = "benar",
-        salah = "salah"
-    }
-    console.log(BenarSalah.benar);
+    // enum BenarSalah {
+    //     benar = "benar",
+    //     salah = "salah"
+    // }
+    // console.log(BenarSalah.benar);
 
     // class
     class Person1 {
@@ -339,24 +340,251 @@ const Home = () => {
     console.log(person1.name);
 
     // acces modifier
+
+    // encapsulation
+    class MyClass {
+        private _myProperty: number = 0;
+
+        get myProperty(): number {
+            return this._myProperty;
+        }
+
+        set myProperty(value: number) {
+            this._myProperty = value
+        }
+        
+    }
+
+    const nyoba = new MyClass;
+    console.log(nyoba.myProperty);
+    nyoba.myProperty = 13
+    console.log(nyoba.myProperty);
+
+    // interface for function
+
+    interface MathOperation {
+        (x: number, y: number): number;
+    }
+
+    const add: MathOperation = (a,b) => a + b;
+    const substract: MathOperation = (a,b) => a - b;
+
+    console.log(add(2,3));
+    console.log(substract(5,2));
+
+    // interface with clauses
+    interface Vehicle {
+        start(): void;
+        stop(): void;
+    }
+
+    class Car implements Vehicle {
+        start() {
+            console.log('mulai');
+        }
+        stop() {
+            console.log('berhenti');
+        }
+    }
+
+    const myCar = new Car;
+    myCar.start();
+    myCar.stop();
+
+    interface Computer {
+        name: string;
+        ram: string;
+        hdd: string;
+    }
+
+    const computerExample: Computer = {
+        name: 'Laptop',
+        ram: '12GB',
+        hdd: 'siata'
+    }
+
+    console.log(computerExample);
+
+    interface Person123 {
+        name: string;
+        age: number;
+        sayHello(): void;
+    }
+
+    function greet(person: Person123) {
+        console.log(`${person.name}`);
+        person.sayHello();
+    }
+
+    const aku: Person123 = {
+        name: 'faradis',
+        age: 13,
+        sayHello() {
+            console.log('Hello');
+        }
+    }
+    console.log(aku.name);
+    greet(aku);
+
+    interface aku {
+        nama: string,
+        namaLagi: string,
+        tambah(nama: string, namaLagi:string): string;
+    }
+
+    const faradis: aku = {
+        nama: 'Faradis',
+        namaLagi: 'Adis',
+        tambah: (nama, namaLagi) => {
+            return `${nama}, ${namaLagi}`
+        }
+    }
+
+    console.log(faradis.nama);
+    console.log(faradis.tambah('Faradis', 'Adis'));
+
+    // declaration merging
+
+    interface Car123 {
+        name: string,
+        start?(): void,
+    }
+
+    interface Car123 {
+        model: string,
+        stop?(): void,
+    }
+
+    const Daihatsu: Car123 = {
+        name: 'Daihatsu',
+        model: 'Gatau'
+    } 
+    
+    console.log(Daihatsu.name);
+
+    // generics
+
+    function nyoba123<T> (x: T) :T {
+        return x
+    } 
+
+    console.log(nyoba123(123));
+    console.log(nyoba123('string'));
+    console.log(nyoba123(true));
+
+    function nyobaLagi<T>(x: T, y: T) : string {
+        return `${x} ${y}`
+    }
+
+    console.log(nyobaLagi<number>(14, 12));
+    // console.log(nyobaLagi<any>("faradis", 12));
+
+    // generics + interface
+    function tes<T>(x: T, y: T): [T,T] {
+        return [x,y]
+    }
+    
+    interface Dog {
+        name: string;
+        gender: string;
+    }
+
+    const Chibi = tes<Dog>({name: 'Naziri', gender: 'Men'}, {name: 'Zayyan', gender: 'Men'})
+    
+    console.log(Chibi);
+
+    // 
+    
+    function getRandomKeyValuePair<T>(obj: { [key: string]: T}): {
+        key: string;
+        value: T;
+    } {
+        const keys = Object.keys(obj);
+        const randKey = keys[Math.floor(Math.random() * keys.length)];
+        return {key: randKey, value: obj[randKey]};
+    }
+
+    const stringObject = {
+        a: "apple",
+        b: "banana",
+        c: "cherry"
+    }
+    const randomStringPair = getRandomKeyValuePair<string>(stringObject);
+    console.log(randomStringPair);
+    
+    const numberObject = {
+        1: 12,
+        2: 32,
+        3: 23
+    }
+
+    const randomNumberPair = getRandomKeyValuePair<number>(numberObject);
+    console.log(randomNumberPair);
+
+    // filterArray function
+    function filterArray<T>(array: T[], condition: (item: T) => boolean): T[] {
+        return array.filter((item) => condition(item));
+    }
+
+    const numberArray = [1,2,3,4,5,6]
+    const evenNumber = filterArray<number>(numberArray, (num) => num % 2 === 0);
+    console.log(evenNumber);
+
+    const stringArray = ["ahahaha", "aha", "ihi"]
+    const threeChar = filterArray<string>(stringArray, (word) => word.length === 3);
+    console.log(threeChar);
+
+    interface Fruit {
+        name: string,
+        color: string
+    }
+
+    const fruitArray: Fruit[] = [
+        {name:"Apel", color: "red"},
+        {name:"Pisang", color: "kuning" },
+        {name:"Gandul", color: "oren"}
+    ]
+
+    const redFruits = filterArray<Fruit>(fruitArray, (fruit) => fruit.color === "red")
+    console.log(redFruits);
+
+    // two types
+    function reversedPair<T, U>(array1: T, array2: U): [U, T] {
+        return [array2, array1]
+    }
+
+    const swap = reversedPair(123, "adis")
+    console.log(swap);
+    
+    class Object123<T> {
+        private content: T;
+
+        constructor (content: T) {
+            this.content = content
+        }
+
+        getContent(): T {
+            return this.content;
+        }
+
+        setContent(newContent: T): void {
+            this.content = newContent
+        }
+    }
+
+    const misal = new Object123<string>("Hallo")
+    console.log(misal.getContent());
+    misal.setContent("Hihihihi")
+    console.log(misal.getContent());
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     return (
-        <>Test</>
+        <>
+            Test
+        </>
     )
 }
 
