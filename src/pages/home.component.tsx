@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
 //     let age: number = 20;
 //     if (age < 50)
@@ -576,14 +578,55 @@ const Home = () => {
     console.log(misal.getContent());
     misal.setContent("Hihihihi")
     console.log(misal.getContent());
+
+    // type narrowing
+    type tipeku = string | number
+
+    function tes123(nilai: tipeku): void {
+        if (typeof nilai === "string") {
+            console.log(nilai.toLowerCase);
+        } else {
+            console.log(nilai * 2);
+        }
+    }
     
-    
-    
-    
+    tes123("Adis")
+    tes123(13)
+
+    // instanceof operator
+    // class Cat {
+    //     meow() {
+    //         console.log("meow");
+    //     }
+    // }
+
+    // class Dog {
+    //     bark() {
+    //         console.log("guk guk guk");
+    //     }
+    // }
+
+    // function suara(animal: Dog | Cat) {
+    //     if (animal instanceof Dog) {
+    //         animal.bark()
+    //     } else {
+    //         animal.meow()
+    //     }
+    // }
+
+    // const Dog123 = new Dog
+    // const Cat123 = new Cat
+
+    // suara(Dog123);
+    // suara(Cat123);
+
+    // intersection
 
     return (
         <>
             Test
+            <Link to="/pindah">Pindah</Link>
+            <Link to="/backend">Backend</Link>
         </>
     )
 }
