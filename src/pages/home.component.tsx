@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import User from "../components/user.component"
 
 const Home = () => {
 //     let age: number = 20;
@@ -627,6 +628,7 @@ const Home = () => {
             Test
             <Link to="/pindah">Pindah</Link>
             <Link to="/backend">Backend</Link>
+            <User name="alex" age={20} isStudent={true} />
         </>
     )
 }
