@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import User from "../components/user.component"
+import Nyoba from "../components/node.component"
+import Button from "../components/button.component";
+import UserInfo from "../components/userInfo.component";
+import AdminInfo from "../components/adminInfo.component";
+import Counter from "../components/counter.component";
+import Typing from "../components/livetyping.component";
 
 const Home = () => {
 //     let age: number = 20;
@@ -623,12 +629,33 @@ const Home = () => {
 
     // intersection
 
+    const user123 = {
+        id: 123,
+        name: "faradis",
+        email: "faradis@gmail.com"
+    }
+
+    const admin = {
+        id: 321,
+        name: 'mbuh',
+        email: 'mbuh@gmail.com',
+        role: "admin"
+    }
+
     return (
         <>
             Test
             <Link to="/pindah">Pindah</Link>
             <Link to="/backend">Backend</Link>
             <User name="alex" age={20} isStudent={true} />
+            <Nyoba>
+                <div>Hello dari children</div>
+            </Nyoba>
+            <Button label="Click me" onClick={() => console.log("Pressed")} disabled={false}/>
+            <UserInfo user={user123}/>
+            <AdminInfo admin={admin}/> 
+            <Counter />
+            <Typing />
         </>
     )
 }
